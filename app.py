@@ -2,11 +2,11 @@ from flask import Flask,jsonify
 import boto3
 import botocore
 import sys
+import os
 
 app = Flask(__name__)
 
 aws=boto3.session.Session(profile_name=None)
-#iam=aws.client('iam')
 iam=boto3.client('iam',aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'), aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'))
 
 
